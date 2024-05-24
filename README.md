@@ -28,7 +28,7 @@ Start with [**Python>=3.8**](https://www.python.org/) environment.
 To run the YOLOv8, YOLO-NAS or YOLOX examples:
 
 ```
-git clone https://github.com/mikel-brostrom/yolo_tracking.git](https://github.com/Howardlei123/Novelty_Assessment_Documentation.git
+git clone https://github.com/Howardlei123/Novelty_Assessment_Documentation.git
 cd yolo_tracking
 pip install -v -e .
 ```
