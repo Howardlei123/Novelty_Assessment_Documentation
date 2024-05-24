@@ -21,7 +21,7 @@ from examples.detectors import get_yolo_inferer
 from collections import deque
 
 __tr = TestRequirements()
-__tr.check_packages(('ultralytics @ git+https://github.com/mikel-brostrom/ultralytics.git', ))  # install
+__tr.check_packages(('ultralytics @ git+https://github.com/mikel-brostrom/ultralytics.git', )) 
 
 from ultralytics import YOLO
 from ultralytics.data.utils import VID_FORMATS
@@ -41,7 +41,7 @@ novelty_frame = []
 person = 0
 save_inference = 0
 
-source_folder = os.path.abspath(os.path.join(os.getcwd(), 'dataset\dataset3'))
+source_folder = os.path.abspath(os.path.join(os.getcwd(), 'dataset/dataset3'))
 
 for file_name in os.listdir(source_folder):
     if file_name.endswith('.jpg') or file_name.endswith('.jpeg') or file_name.endswith('.png'):
@@ -159,14 +159,14 @@ def disappearing_position_prediction_buffer_update(disappearing_position_predict
 
 
 def disappear_id_filter(id_position_buffers, disappear_id, frame_width, frame_length):
-    #物体不可能消失在边缘10之内的地方，所以我会记录下在边缘10之内但是消失的ID，只有他们才有资格跟appear_id去匹配。
+   #Objects cannot disappear within 10 units of the edge, so I will record the IDs of those that do disappear within 10 units of the edge. Only these IDs will be eligible to match with the appear_id
     border_distance = 10
     filtered_disappear_id = []
 
     for id in disappear_id:
-        x, y = id_position_buffers[id][-2]  # 获取最后一个位置的坐标
+        x, y = id_position_buffers[id][-2]  #Retrieve the coordinates of the last position.
         
-        # 检查是否在边缘10以内
+        #Check if it is within 10 units of the edge.
         if x > border_distance and x < frame_width - border_distance:
             
             filtered_disappear_id.append(id)
@@ -461,10 +461,10 @@ def run(args):
                         ),
                         BGR=True
                     )
-            if len(r.boxes) == 0:  # 如果当前帧没有跟踪到的对象
+            if len(r.boxes) == 0:  # If no objects are tracked in the current frame.
                 for id in id_buffers:
-                    id_buffers[id].append(0)  # 对于所有ID，向其对应的缓冲区添加0
-                    id_position_buffers[id].append((0, 0))  # 同时更新位置缓冲区
+                    id_buffers[id].append(0)  # For all IDs, add a 0 to their corresponding buffer.
+                    id_position_buffers[id].append((0, 0))  # Simultaneously update the position buffer.
 
             else:
                 if loop == True:

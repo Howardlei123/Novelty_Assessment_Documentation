@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 import numpy as np
 
-df = pd.read_excel('results/results_Dataset3.xlsx', engine='openpyxl')  # 修改为你的文件路径
+df = pd.read_excel('results/results_Dataset3.xlsx', engine='openpyxl')  # change to the directory of true labels
 
 tpr = df['TPR'].tolist()
 fpr = df['FPR'].tolist()

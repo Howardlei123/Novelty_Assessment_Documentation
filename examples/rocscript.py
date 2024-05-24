@@ -150,7 +150,7 @@ new_data = pd.DataFrame(rows_list)
 results = pd.concat([results, new_data], ignore_index=True)
 results.to_excel(excel_file, index=False)      
         
-# 找到FPR和FNR折衷的最小值
+# find the minmum intersection of FNR and FPR
 sum_matrix = fpr_matrix + fnr_matrix
 min_index = np.unravel_index(np.argmin(sum_matrix, axis=None), sum_matrix.shape)
 best_movement_threshold = movement_threshold_values[min_index[0]]
