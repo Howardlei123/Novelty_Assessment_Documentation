@@ -538,7 +538,7 @@ def parse_opt():
                         help='confidence threshold')
     parser.add_argument('--iou', type=float, default=0.7,
                         help='intersection over union (IoU) threshold for NMS')
-    parser.add_argument('--device', default='0',
+    parser.add_argument('--device', default='cpu',
                         help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
     parser.add_argument('--show', default = False, action='store_true',
                         help='display tracking video results')
