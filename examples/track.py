@@ -41,7 +41,7 @@ novelty_frame = []
 person = 0
 save_inference = 0
 
-source_folder = os.path.abspath(os.path.join(os.getcwd(), '../Dataset/Dataset3'))
+source_folder = os.path.abspath(os.path.join(os.getcwd(), 'Dataset/Dataset3'))
 
 for file_name in os.listdir(source_folder):
     if file_name.endswith('.jpg') or file_name.endswith('.jpeg') or file_name.endswith('.png'):
