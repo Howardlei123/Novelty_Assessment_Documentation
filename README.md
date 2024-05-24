@@ -1,11 +1,11 @@
 # Novelty Assessment
 
-Reference: Works cited from https://github.com/mikel-brostrom/yolov8_tracking
+Reference: Some works cited from https://github.com/mikel-brostrom/yolov8_tracking
 
 ## Introduction
 
 The links of the following models are provided for reference.
- Heavy ([CLIPReID](https://arxiv.org/pdf/2211.13977.pdf)) and lightweight state-of-the-art ReID models ([LightMBN](https://arxiv.org/pdf/2101.10774.pdf), [OSNet](https://arxiv.org/pdf/1905.00953.pdf) and more) are available for automatic download. We provide examples on how to use this package together with popular object detection models such as: [Yolov8](https://github.com/ultralytics), [Yolo-NAS](https://github.com/Deci-AI/super-gradients) and [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX).
+ Heavy ([CLIPReID](https://arxiv.org/pdf/2211.13977.pdf)) and lightweight state-of-the-art ReID models ([LightMBN](https://arxiv.org/pdf/2101.10774.pdf), [OSNet](https://arxiv.org/pdf/1905.00953.pdf) and more) are available for automatic download. [Yolov8](https://github.com/ultralytics), [Yolo-NAS](https://github.com/Deci-AI/super-gradients) and [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX).
 
 <div align="center">
 
@@ -19,81 +19,18 @@ The links of the following models are provided for reference.
 | [StrongSORT](https://arxiv.org/pdf/2202.13514.pdf) |      | | |
 | <img width=200/>                                   | <img width=100/> | <img width=100/> | <img width=100/> |
 
-<sub> NOTES: performed on the 10 first frames of each MOT17 sequence. The detector used is ByteTrack's YoloXm, trained on: CrowdHuman, MOT17, Cityperson and ETHZ. Each tracker is configured with its original parameters found in their respective official repository.</sub>
 
-</div>
-
-</details>
-
-<details>
-<summary>Tutorials</summary>
-  
-* [Yolov8 training (link to external repository)](https://docs.ultralytics.com/modes/train/)&nbsp;
-* [Deep appearance descriptor training (link to external repository)](https://kaiyangzhou.github.io/deep-person-reid/user_guide.html)&nbsp;
-* [ReID model export to ONNX, OpenVINO, TensorRT and TorchScript](https://github.com/mikel-brostrom/yolo_tracking/wiki/ReID-multi-framework-model-export)&nbsp;
-* [Evaluation on custom tracking dataset](https://github.com/mikel-brostrom/yolo_tracking/wiki/How-to-evaluate-on-custom-tracking-dataset)&nbsp;
-* [ReID inference acceleration with Nebullvm](https://colab.research.google.com/drive/1APUZ1ijCiQFBR9xD0gUvFUOC8yOJIvHm?usp=sharing)&nbsp;
-
-  </details>
-
-<details>
-<summary>Experiments</summary>
-
-In inverse chronological order:
-
-* [Evaluation of the params evolved for first half of MOT17 on the complete MOT17](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/Evaluation-of-the-params-evolved-for-first-half-of-MOT17-on-the-complete-MOT17)
-
-* [Segmentation model vs object detetion model on MOT metrics](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/Segmentation-model-vs-object-detetion-model-on-MOT-metrics)
-
-* [Effect of masking objects before feature extraction](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/Masked-detection-crops-vs-regular-detection-crops-for-ReID-feature-extraction)
-
-* [conf-thres vs HOTA, MOTA and IDF1](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/conf-thres-vs-MOT-metrics)
-
-* [Effect of KF updates ahead for tracks with no associations on MOT17](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/Effect-of-KF-updates-ahead-for-tracks-with-no-associations,-on-MOT17)
-
-* [Effect of full images vs 1280 input to StrongSORT on MOT17](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/Effect-of-passing-full-image-input-vs-1280-re-scaled-to-StrongSORT-on-MOT17)
-
-* [Effect of different OSNet architectures on MOT16](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/OSNet-architecture-performances-on-MOT16)
-
-* [Yolov5 StrongSORT vs BoTSORT vs OCSORT](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/StrongSORT-vs-BoTSORT-vs-OCSORT)
-    * Yolov5 [BoTSORT](https://arxiv.org/abs/2206.14651) branch: https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/tree/botsort
-
-* [Yolov5 StrongSORT OSNet vs other trackers MOT17](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/MOT-17-evaluation-(private-detector))&nbsp;
-
-* [StrongSORT MOT16 ablation study](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/Yolov5DeepSORTwithOSNet-vs-Yolov5StrongSORTwithOSNet-ablation-study-on-MOT16)&nbsp;
-
-* [Yolov5 StrongSORT OSNet vs other trackers MOT16 (deprecated)](https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet/wiki/MOT-16-evaluation)&nbsp;
-
-  </details>
-
-#### News
-
-* Centroid-based cost function added to OCSORT and DeepOCSORT (suitable for: small and/or high speed objects and low FPS videos) (January 2024)
-* Custom Ultralytics pacakge updated from 8.0.124 to 8.0.224 (December 2023)
-* HybridSORT available (August 2023)
-* SOTA CLIP-ReID people and vehicle models available (August 2023)
-
-
-## Why BOXMOT?
-
-Today's multi-object tracking options are heavily dependant on the computation capabilities of the underlaying hardware. BOXMOT provides a great variety of setup options that meet different hardware limitations: CPU only, low memory GPUs... Everything is designed with simplicity and flexibility in mind. If you don't get good tracking results on your custom dataset with the out-of-the-box tracker configurations, use the `examples/evolve.py` script for tracker hyperparameter tuning.
 
 ## Installation
 
 Start with [**Python>=3.8**](https://www.python.org/) environment.
 
-If you want to run the YOLOv8, YOLO-NAS or YOLOX examples:
+To run the YOLOv8, YOLO-NAS or YOLOX examples:
 
 ```
-git clone https://github.com/mikel-brostrom/yolo_tracking.git
+git clone https://github.com/Howardlei123/Novelty_Assessment_Documentation.git
 cd yolo_tracking
 pip install -v -e .
-```
-
-but if you only want to import the tracking modules you can simply:
-
-```
-pip install boxmot
 ```
 
 ## YOLOv8 | YOLO-NAS | YOLOX examples
@@ -422,13 +359,4 @@ cv2.destroyAllWindows()
 
 </details>
 
-## Contributors
 
-<a href="https://github.com/mikel-brostrom/yolo_tracking/graphs/contributors ">
-  <img src="https://contrib.rocks/image?repo=mikel-brostrom/yolo_tracking" />
-</a>
-
-## Contact
-
-For Yolo tracking bugs and feature requests please visit [GitHub Issues](https://github.com/mikel-brostrom/yolo_tracking/issues).
-For business inquiries or professional support requests please send an email to: yolov5.deepsort.pytorch@gmail.com
