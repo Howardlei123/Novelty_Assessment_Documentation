@@ -1,6 +1,6 @@
 # Novelty Assessment
 
-Reference: Works cited from https://github.com/mikel-brostrom/yolov8_tracking
+Reference: Some works cited from https://github.com/mikel-brostrom/yolov8_tracking
 
 ## Introduction
 
@@ -365,7 +365,7 @@ cv2.destroyAllWindows()
 
 </details>
 
-## Contributors
+## Reference to Contributors
 
 <a href="https://github.com/mikel-brostrom/yolo_tracking/graphs/contributors ">
   <img src="https://contrib.rocks/image?repo=mikel-brostrom/yolo_tracking" />
