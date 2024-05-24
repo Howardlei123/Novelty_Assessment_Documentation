@@ -38,10 +38,9 @@ total_count = 0
 novelty_frame = []
 
 #set person
-person = 0
-save_inference = 0
+person = 1
 
-source_folder = os.path.abspath(os.path.join(os.getcwd(), 'dataset\dataset3'))
+source_folder = os.path.abspath(os.path.join(os.getcwd(), 'dataset\dataset2'))
 
 for file_name in os.listdir(source_folder):
     if file_name.endswith('.jpg') or file_name.endswith('.jpeg') or file_name.endswith('.png'):
@@ -343,21 +342,11 @@ def angle_difference(angle1, angle2):
     return abs(angle1 - angle2)
 
 def ensure_dir(directory):
+    """
+    确保目录存在，如果不存在，则创建它。
+    """
     if not os.path.exists(directory):
         os.makedirs(directory)
-
-def draw_boxes(image, boxes, ids):
-    """
-    Draw bounding boxes with IDs on the image.
-    """
-    for box, id in zip(boxes, ids):
-        x1, y1, x2, y2 = [int(b) for b in box[:4]]
-        label = f'ID {id}'
-        # Draw rectangle
-        cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        # Put text for ID
-        cv2.putText(image, label, (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-    return image
 
 @torch.no_grad()
 def run(args):
@@ -409,8 +398,7 @@ def run(args):
     f = open(csv_file_path, 'w', newline='')
     writer = csv.writer(f)
     writer.writerow(['label'])  # Write the header
-    result_dir = Path.cwd() / 'resultshow'
-    ensure_dir(result_dir)
+
     # local variable
     loop = True
     ignore_list = [] # to ignore the dedicated signals
@@ -420,19 +408,16 @@ def run(args):
             
             orig_img = r.orig_img
 
-            boxes = r.boxes.xyxy.cpu().numpy().tolist()  
+            boxes = r.boxes.xyxy.cpu().numpy().tolist()  # 假设您的boxes已经在正确的格式中
             ids = r.boxes.id.cpu().numpy().tolist()
 
-            if (save_inference == 1):
-                # save inference 
-                save_path = result_dir / f"frame_{frame_idx}.jpg"
 
-                orig_img_cv = np.array(orig_img)  # Convert PIL image to numpy array
-                orig_img_cv = cv2.cvtColor(orig_img_cv, cv2.COLOR_RGB2BGR)  # Convert RGB to BGR
 
-                # Draw bounding boxes on the image
-                drawn_img = draw_boxes(orig_img_cv, boxes, ids)
-                cv2.imwrite(str(save_path), drawn_img)
+             # 定义保存图像的路径
+            result_dir = Path.cwd() / 'resultshow'
+            ensure_dir(result_dir)
+            save_path = result_dir / f"frame_{frame_idx}.jpg"
+
                 
             if yolo.predictor.source_type.webcam or args.source.endswith(VID_FORMATS):
                 p = yolo.predictor.save_dir / 'mot' / (args.source + '.txt')
