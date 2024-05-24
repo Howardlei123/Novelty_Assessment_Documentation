@@ -415,6 +415,7 @@ def run(args):
     # local variable
     loop = True
     ignore_list = [] # to ignore the dedicated signals
+    novelty_signal = 0
     for frame_idx, r in enumerate(results):
 
         if r.boxes.data.shape[1] == 7:
