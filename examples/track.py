@@ -40,6 +40,7 @@ novelty_frame = []
 #set person
 person = 0
 save_inference = 0
+novelty_signal = 0
 
 source_folder = os.path.abspath(os.path.join(os.getcwd(), 'Dataset/Dataset3'))
 

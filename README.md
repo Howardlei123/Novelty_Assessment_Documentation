@@ -33,6 +33,9 @@ cd yolo_tracking
 pip install -v -e .
 ```
 
+## Notes
+
+If GPU is used, change the default setting of device of parseopt()to '0'.
 ## YOLOv8 | YOLO-NAS | YOLOX examples
 
 <details>
