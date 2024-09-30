@@ -161,6 +161,17 @@ The set of hyperparameters leading to the best HOTA result are written to the tr
 </details>
 
 
+## Model 
+| Model                                                                                        | size<br><sup>(pixels) | mAP<sup>box<br>50-95 | mAP<sup>mask<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
+| -------------------------------------------------------------------------------------------- | --------------------- | -------------------- | --------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+| [YOLO11n-seg](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n-seg.pt) | 640                   | 38.9                 | 32.0                  | 65.90 ± 1.14 ms                | 1.84 ± 0.00 ms                      | 2.9                | 10.4              |
+| [YOLO11s-seg](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s-seg.pt) | 640                   | 46.6                 | 37.8                  | 117.56 ± 4.89 ms               | 2.94 ± 0.01 ms                      | 10.1               | 35.5              |
+| [YOLO11m-seg](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11m-seg.pt) | 640                   | 51.5                 | 41.5                  | 281.63 ± 1.16 ms               | 6.31 ± 0.09 ms                      | 22.4               | 123.3             |
+| [YOLO11l-seg](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11l-seg.pt) | 640                   | 53.4                 | 42.9                  | 344.16 ± 3.17 ms               | 7.78 ± 0.16 ms                      | 27.6               | 142.2             |
+| [YOLO11x-seg](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11x-seg.pt) | 640                   | 54.7              
+
+
+
 ## Custom object detection model tracking example
 
 <details>
